@@ -1,18 +1,19 @@
 import 'dart:math';
-
+import 'weight_ScrollWheel.dart';
 import 'package:flutter/cupertino.dart';
 import 'height_class.dart';
 import 'weight_class.dart';
 
 class CalculatorBrain {
-  CalculatorBrain({required this.height, required this.weight});
-  final int height;
-  final int weight;
+  CalculatorBrain({required this.input_height, required this.input_weight});
+  final int input_height;
+  final int input_weight;
 
   double? _bmi;
 
   String calculatorBMI() {
-    _bmi = weight / pow(height / 100, 2);
+    _bmi = input_weight /
+        pow(currentSliderValue_ft / 3.28084 + inchValueSlider / 39.37, 2);
     return _bmi!.toStringAsFixed(1);
   }
 

@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/components/weight_ScrollWheel.dart';
 import 'package:flutter/material.dart';
 import '../components/age_class.dart';
 import '../components/icon_content_data.dart';
@@ -89,7 +90,7 @@ class _InputpageState extends State<Inputpage> {
                 Expanded(
                   child: ReusableCard(
                     cardColour: kinactiveCardColor,
-                    cardChild: Weight_child(),
+                    cardChild: Weight_Scoller(),
                   ),
                 ),
                 Expanded(

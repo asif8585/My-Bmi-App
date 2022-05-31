@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class Height_child extends StatefulWidget {
   @override
@@ -7,6 +8,8 @@ class Height_child extends StatefulWidget {
 }
 
 int height = 100;
+int currentSliderValue_ft = 3;
+int inchValueSlider = 6;
 
 class _Height_childState extends State<Height_child> {
   @override
@@ -19,28 +22,61 @@ class _Height_childState extends State<Height_child> {
           crossAxisAlignment: CrossAxisAlignment.baseline,
           textBaseline: TextBaseline.alphabetic,
           children: [
-            Text(height.round().toString(),
-                style: GoogleFonts.acme(fontSize: 40)),
+            ///ft slider 1 text
+
+            Text(currentSliderValue_ft.toString(),
+                style: GoogleFonts.acme(
+                    fontSize: 40, color: Color.fromARGB(208, 244, 109, 67))),
             SizedBox(
               width: 5,
             ),
             Text(
-              'CM',
-              style: GoogleFonts.acme(),
+              'Ft',
+              style: GoogleFonts.acme(color: Color.fromARGB(208, 244, 109, 67)),
             ),
+            SizedBox(
+              width: 10,
+            ),
+            Slider(
+                value: currentSliderValue_ft.toDouble(),
+                inactiveColor: Colors.white,
+                activeColor: Color.fromARGB(208, 244, 109, 67),
+                max: 8,
+                min: 1,
+                onChanged: (double value) {
+                  setState(() {
+                    currentSliderValue_ft = value.toInt();
+                  });
+                }),
           ],
         ),
-        Slider(
-          value: height.toDouble(),
-          onChanged: (value) {
-            setState(() {
-              height = value.toInt();
-            });
-          },
-          activeColor: Colors.deepOrange,
-          inactiveColor: Colors.white,
-          min: 0,
-          max: 250,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+/////// inches slider 2 text
+            Text(inchValueSlider.toString(),
+                style: GoogleFonts.acme(
+                    fontSize: 40, color: Color.fromARGB(226, 205, 127, 63))),
+            SizedBox(
+              width: 5,
+            ),
+            Text(
+              'Inches',
+              style: GoogleFonts.acme(color: Color.fromARGB(226, 205, 127, 63)),
+            ),
+            /////SLIDER  2 INCHES VALUE
+            Slider(
+                value: inchValueSlider.toDouble(),
+                max: 11,
+                min: 0,
+                inactiveColor: Colors.white,
+                activeColor: Color.fromARGB(226, 205, 127, 63),
+                onChanged: (double value) {
+                  setState(() {
+                    inchValueSlider = value.toInt();
+                  });
+                }),
+          ],
         ),
         Text(
           'HEIGHT',

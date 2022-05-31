@@ -6,13 +6,15 @@ import 'package:bmi_calculator/screens/calculate_results.dart';
 import 'calculatorBrain.dart';
 import 'height_class.dart';
 import 'weight_class.dart';
+import 'weight_ScrollWheel.dart';
 
 class calculateBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (() {
-        CalculatorBrain calc = CalculatorBrain(height: height, weight: weight);
+        CalculatorBrain calc = CalculatorBrain(
+            input_height: height, input_weight: current_Weight_Number);
 
         Navigator.push(
           context,
