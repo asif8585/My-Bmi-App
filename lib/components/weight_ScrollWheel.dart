@@ -14,17 +14,19 @@ class _Weight_ScollerState extends State<Weight_Scoller> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Row(
-          children: [
-            Text(
-              'Weight',
-              style: GoogleFonts.acme(fontSize: 20, color: Colors.deepOrange),
-            ),
-            Icon(
-              Icons.arrow_forward,
-              color: Colors.deepOrange,
-            )
-          ],
+        Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: Text(
+            'Weight',
+            style: GoogleFonts.acme(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.deepOrange),
+          ),
+        ),
+        Icon(
+          Icons.arrow_forward,
+          color: Colors.deepOrange,
         ),
         Expanded(
           child: ListWheelScrollView.useDelegate(
@@ -36,7 +38,7 @@ class _Weight_ScollerState extends State<Weight_Scoller> {
             itemExtent: 55,
             useMagnifier: true,
             diameterRatio: 10,
-            magnification: 1.2,
+            magnification: 1.1,
             physics: FixedExtentScrollPhysics(),
             perspective: 0.006,
             childDelegate: ListWheelChildBuilderDelegate(

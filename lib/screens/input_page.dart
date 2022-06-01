@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/components/heightScroller.dart';
 import 'package:bmi_calculator/components/weight_ScrollWheel.dart';
 import 'package:flutter/material.dart';
 import '../components/age_class.dart';
@@ -81,7 +82,7 @@ class _InputpageState extends State<Inputpage> {
           Expanded(
             child: ReusableCard(
               cardColour: kinactiveCardColor,
-              cardChild: Height_child(),
+              cardChild: HeightScrollerClass(),
             ),
           ),
           Expanded(
@@ -91,12 +92,6 @@ class _InputpageState extends State<Inputpage> {
                   child: ReusableCard(
                     cardColour: kinactiveCardColor,
                     cardChild: Weight_Scoller(),
-                  ),
-                ),
-                Expanded(
-                  child: ReusableCard(
-                    cardColour: kinactiveCardColor,
-                    cardChild: Age_child(),
                   ),
                 ),
               ],
@@ -124,9 +119,9 @@ class ReusableCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         color: cardColour,
       ),
-      margin: EdgeInsets.all(13),
-      height: 200,
-      width: 360,
+      margin: EdgeInsets.all(11),
+      // height: 200,
+      // width: 360,
     );
   }
 }

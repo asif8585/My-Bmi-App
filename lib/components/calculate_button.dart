@@ -23,6 +23,7 @@ class calculateBtn extends StatelessWidget {
                   bmiResult: calc.calculatorBMI(),
                   resultText: calc.textBMIresult(),
                   interpretation: calc.getBMIsuggestion(),
+                  conclusion: calc.conclusion(),
                 )),
           ),
         );

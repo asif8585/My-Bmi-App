@@ -7,12 +7,14 @@ import '../components/calculate_button.dart';
 class ResultPage extends StatefulWidget {
   ResultPage(
       {required this.bmiResult,
+      required this.conclusion,
       required this.resultText,
       required this.interpretation});
 
   final String bmiResult;
   final String resultText;
   final String interpretation;
+  final String conclusion;
 
   @override
   State<ResultPage> createState() => _ResultPageState();
@@ -45,25 +47,38 @@ class _ResultPageState extends State<ResultPage> {
           Expanded(
             child: ReusableCard(
               cardColour: kinactiveCardColor,
-              cardChild: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(
-                    widget.resultText,
-                    style: GoogleFonts.acme(textStyle: resultTextStyle),
-                  ),
-                  Text(
-                    widget.bmiResult,
-                    style: GoogleFonts.acme(textStyle: kBmiTextStyle),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Text(
-                      widget.interpretation,
-                      style: GoogleFonts.aBeeZee(textStyle: kBmiText),
+              cardChild: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      widget.resultText,
+                      style: GoogleFonts.acme(textStyle: resultTextStyle),
                     ),
-                  )
-                ],
+                    Text(
+                      widget.bmiResult,
+                      style: GoogleFonts.acme(textStyle: kBmiTextStyle),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(28.0),
+                      child: Text(
+                        widget.conclusion,
+                        style: GoogleFonts.acme(
+                            fontSize: 20,
+                            color: Color.fromARGB(255, 250, 155, 126)),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(23),
+                      child: Text(
+                        widget.interpretation,
+                        style: GoogleFonts.acme(
+                            color: Color.fromARGB(255, 158, 244, 161),
+                            fontSize: 18),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
